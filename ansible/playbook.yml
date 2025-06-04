@@ -1,0 +1,14 @@
+---
+- name: Deploy tomcat
+  hosts: web
+  become: yes
+  tasks:
+    - name: Copy war file to tomcat
+      copy:
+        src: "/var/snap/jenkins/4870/workspace/EXAN3/target/EXAN3.war"
+        dest: "/opt/tomcat/webapps/EXAN3.war"
+        remote_src: no
+    - name: Restart tomcat manually
+      shell: "/opt/tomcat/bin/shutdown.sh && /opt/tomcat/bin/startup.sh"
+      args:
+      	executable: /bin/bash
