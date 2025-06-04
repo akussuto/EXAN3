@@ -11,4 +11,4 @@
     - name: Restart tomcat manually
       shell: "/opt/tomcat/bin/shutdown.sh && /opt/tomcat/bin/startup.sh"
       args:
-        executable: /bin/bash
+       executable: /bin/bash
